@@ -1,0 +1,74 @@
+
+.save-btn-container {
+  position: relative; /* anchor message to the button */
+  z-index: auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.save-btn {
+  background: var(--color-primary);
+  color: #fff;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.2rem; /* align with nodes-action-btn */
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(39,174,96,0.10);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.save-btn:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 24px rgba(39,174,96,0.13);
+}
+
+.save-btn.loading {
+  background: #bdbdbd;
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.save-btn.success {
+  background: var(--color-success);
+}
+
+.save-btn.error {
+  background: var(--color-danger);
+}
+
+.save-btn-message {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  margin-top: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-text);
+  box-shadow: 0 2px 8px rgba(39,174,96,0.10);
+  transition: background var(--transition), color var(--transition), opacity var(--transition);
+  opacity: 0.98;
+  min-width: 200px;
+  text-align: left; /* natural alignment under the button */
+}
+
+.save-btn-message.success {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.save-btn-message.error {
+  background: #fdecea;
+  color: var(--color-danger);
+}

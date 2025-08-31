@@ -1,0 +1,68 @@
+
+
+.flow-area {
+  flex: 1 1 0;
+  height: 100%;
+  min-width: 0;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--color-shadow);
+  overflow: hidden;
+  display: flex;
+  transition: box-shadow var(--transition);
+}
+
+.flow-area:focus-within {
+  box-shadow: var(--color-shadow-strong);
+}
+
+.react-flow__edge-path {
+  stroke: var(--color-primary);
+  stroke-width: 2.5px;
+  transition: stroke 0.2s, stroke-width 0.2s;
+  stroke-linecap: round;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--color-primary-dark);
+  stroke-width: 3px;
+}
+
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: var(--color-primary-dark);
+  stroke-width: 3px;
+}
+
+.react-flow__edge.deleting .react-flow__edge-path {
+  stroke: var(--color-danger);
+  stroke-dasharray: 6 2;
+}
+
+.react-flow__connection-path {
+  stroke: var(--color-primary);
+  stroke-width: 2.5px;
+  stroke-dasharray: 4 2;
+  opacity: 0.7;
+  stroke-linecap: round; /* smoother preview and better visual alignment with circular handles */
+}
+
+.react-flow__edge-path {
+  stroke: #27ae60;
+  stroke-width: 2.5px;
+  transition: stroke 0.2s;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #219150;
+  stroke-width: 3px;
+}
+
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: #219150;
+  stroke-width: 3px;
+}
+
+.react-flow__edge.deleting .react-flow__edge-path {
+  stroke: #e74c3c;
+  stroke-dasharray: 6 2;
+}

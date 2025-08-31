@@ -1,0 +1,33 @@
+# Exclude files/folders from Vercel deployment
+
+# Node & package managers
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Vite & build artifacts
+dist/
+.vite/
+.cache/
+
+# Source maps (keep disabled in prod deploys)
+**/*.map
+
+# Tests and tooling
+__tests__/
+coverage/
+*.spec.*
+*.test.*
+
+# IDE/editor
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env files (use Vercel Env manager)
+.env*

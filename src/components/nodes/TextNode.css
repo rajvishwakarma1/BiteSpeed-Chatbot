@@ -1,0 +1,109 @@
+/* Clean, unified styles for TextNode matching the green header design */
+
+.text-node-container {
+  --handle-size: 18px; /* controls connector size; offsets below use this */
+  --node-border-width: 2px; /* must match .text-node-container border width */
+  min-width: 180px;
+  max-width: 280px;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 12px rgba(39,174,96,0.10);
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: visible; /* allow handles to extend outside for full-circle look */
+  border: 2px solid var(--color-border);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+  position: relative;
+}
+
+.text-node-container.selected {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 24px rgba(39,174,96,0.18);
+  transform: scale(1.03);
+}
+
+.text-node-header {
+  background: #27ae60; /* explicit green per design */
+  color: #fff;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.text-node-icon {
+  margin-right: 0.6rem;
+  font-size: 1.2rem;
+}
+
+.text-node-title {
+  font-size: 1rem;
+}
+
+.text-node-body {
+  background: #fff;
+  padding: 1rem 1.1rem;
+  color: #222;
+  font-size: 0.95rem;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.text-node-label {
+  word-break: break-word;
+}
+
+/* React Flow handles */
+/* Keep a generous clickable area but draw a triangle with a pseudo-element */
+.react-flow__handle {
+  width: var(--handle-size);
+  height: var(--handle-size);
+  background: #27ae60;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgba(39,174,96,0.15);
+  transition: background 0.2s, opacity 0.2s, box-shadow 0.2s, transform 0.1s;
+  z-index: 3; /* ensure above node body for easy clicking */
+  cursor: pointer;
+}
+
+/* Left side: triangle pointing left (half in/half out) */
+.text-node-container .react-flow__handle.react-flow__handle-left {
+  left: calc((var(--handle-size) / 2) - var(--node-border-width));
+}
+
+/* Right side: triangle pointing right */
+.text-node-container .react-flow__handle.react-flow__handle-right {
+  right: calc((var(--handle-size) / 2) - var(--node-border-width));
+}
+
+.react-flow__handle:hover {
+  background: #219150;
+  box-shadow: 0 0 0 6px rgba(39,174,96,0.10), 0 2px 8px rgba(39,174,96,0.18);
+}
+
+/* Offset handles outward so the circle is fully visible beyond the node border */
+/* Use transforms so half of the handle overlaps inside the node border */
+.text-node-container .react-flow__handle.react-flow__handle-left,
+.text-node-container .react-flow__handle.react-flow__handle-right {
+  top: 50%;
+}
+.text-node-container .react-flow__handle.react-flow__handle-left {
+  left: calc((var(--handle-size) / 2) - var(--node-border-width));
+  transform: translate(-50%, -50%);
+}
+.text-node-container .react-flow__handle.react-flow__handle-right {
+  right: calc((var(--handle-size) / 2) - var(--node-border-width));
+  transform: translate(50%, -50%);
+}
+
+.react-flow__handle.has-connection {
+  background: #bdbdbd;
+  opacity: 0.6;
+  box-shadow: none;
+}

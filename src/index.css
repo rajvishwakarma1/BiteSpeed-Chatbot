@@ -1,0 +1,99 @@
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #f7f8fa;
+  --color-bg-gradient: linear-gradient(135deg, #f7f8fa 0%, #eafaf1 100%);
+  --color-primary: #27ae60;
+  --color-primary-dark: #219150;
+  --color-primary-light: #eafaf1;
+  --color-danger: #e74c3c;
+  --color-success: #2ecc71;
+  --color-border: #e0e0e0;
+  --color-shadow: 0 2px 16px rgba(39,174,96,0.08);
+  --color-shadow-hover: 0 4px 24px rgba(39,174,96,0.13);
+  --color-shadow-strong: 0 8px 32px rgba(39,174,96,0.18);
+  --color-text: #222;
+  --color-text-light: #666;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 18px;
+  --transition: 0.18s cubic-bezier(.4,0,.2,1);
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: var(--color-bg-gradient);
+  color: var(--color-text);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+p, label, span, button, input, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+button, input, textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+
+button:focus, input:focus, textarea:focus {
+  box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
