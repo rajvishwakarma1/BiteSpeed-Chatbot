@@ -4,13 +4,14 @@
   flex-direction: column;
   gap: var(--space-sm);
   padding: var(--space-xs) 0;
+  width: 100%;
 }
 
 .nodes-panel-title {
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-text);
-  margin: var(--space-xs) 0;
+  margin: var(--space-xs) var(--space-xs);
   font-family: 'Inter', Arial, sans-serif;
   letter-spacing: 0.01em;
 }
@@ -18,7 +19,9 @@
 .nodes-panel-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end; /* actions to the right */
+  width: 100%;
+  margin: 0 var(--space-xs) var(--space-xs);
 }
 
 .nodes-actions {
@@ -59,8 +62,10 @@
   border-radius: var(--radius-sm);
   padding: 0.5rem 0.6rem;
   box-shadow: none;
-  margin-bottom: var(--space-sm);
+  margin: 0 var(--space-xs) var(--space-sm);
   border: 1px dashed var(--color-primary);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .instructions-header {
@@ -111,6 +116,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  width: 100%;
+  margin: 0 var(--space-xs);
 }
 
 .nodes-panel-item {
@@ -124,6 +131,7 @@
   transition: box-shadow var(--transition), background var(--transition), transform var(--transition);
   border: 1.5px solid var(--color-border);
   gap: var(--space-sm);
+  width: 100%;
 }
 
 .nodes-panel-item:active {

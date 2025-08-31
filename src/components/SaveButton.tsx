@@ -5,32 +5,30 @@ import './SaveButton.css';
 
 const SaveButton: React.FC<SaveButtonProps> = ({ nodes, edges, onSave }) => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [message, setMessage] = useState<string>('');
 
   const handleClick = async () => {
     setStatus('loading');
-    setMessage('');
     const result: ValidationResult = validateFlow(nodes, edges);
     if (!result.valid) {
       setStatus('error');
-  // Show the single, design-specified error message
-  setMessage('Cannot save Flow');
+      // Show error at top center
+      window.dispatchEvent(new CustomEvent('app:banner', { detail: { message: 'Cannot save Flow', variant: 'error', timeout: 2500 } }));
       setTimeout(() => setStatus('idle'), 2500);
       return;
     }
     // Simulate save operation
     await new Promise((resolve) => setTimeout(resolve, 1200));
     setStatus('success');
-    setMessage('Flow saved successfully!');
+    // Show success at top center
+    window.dispatchEvent(new CustomEvent('app:banner', { detail: { message: 'Flow saved successfully!', variant: 'success', timeout: 2000 } }));
     if (onSave) onSave();
     setTimeout(() => {
       setStatus('idle');
-      setMessage('');
     }, 2000);
   };
 
   return (
-    <div className="save-btn-container">
+  <div className="save-btn-container">
       <button
         className={`save-btn${status === 'loading' ? ' loading' : ''}${status === 'success' ? ' success' : ''}${status === 'error' ? ' error' : ''}`}
         onClick={handleClick}
@@ -38,9 +36,6 @@ const SaveButton: React.FC<SaveButtonProps> = ({ nodes, edges, onSave }) => {
       >
         {status === 'loading' ? 'Saving...' : 'Save Flow'}
       </button>
-      {message && (
-        <div className={`save-btn-message${status === 'error' ? ' error' : ''}${status === 'success' ? ' success' : ''}`}>{message}</div>
-      )}
     </div>
   );
 };

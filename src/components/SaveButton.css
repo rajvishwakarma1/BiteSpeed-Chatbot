@@ -45,30 +45,4 @@
   background: var(--color-danger);
 }
 
-.save-btn-message {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  margin-top: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 0.6rem 1.2rem;
-  border-radius: var(--radius-sm);
-  background: #fff;
-  color: var(--color-text);
-  box-shadow: 0 2px 8px rgba(39,174,96,0.10);
-  transition: background var(--transition), color var(--transition), opacity var(--transition);
-  opacity: 0.98;
-  min-width: 200px;
-  text-align: left; /* natural alignment under the button */
-}
-
-.save-btn-message.success {
-  background: var(--color-primary-light);
-  color: var(--color-primary);
-}
-
-.save-btn-message.error {
-  background: #fdecea;
-  color: var(--color-danger);
-}
+/* inline save message styles removed (using TopBanner) */

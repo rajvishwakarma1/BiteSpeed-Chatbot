@@ -4,6 +4,7 @@ import Sidebar from './Sidebar';
 import SaveButton from './SaveButton';
 import type { ChatbotNode, ChatbotEdge, SidebarState } from '../types';
 import './Layout.css';
+import TopBanner from './TopBanner';
 
 const Layout: React.FC = () => {
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
@@ -74,6 +75,7 @@ const Layout: React.FC = () => {
 
   return (
     <div className="layout-container">
+  <TopBanner />
       <div className="canvas-area">
         <FlowBuilder
           nodes={nodes}
