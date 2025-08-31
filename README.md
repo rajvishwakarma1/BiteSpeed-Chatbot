@@ -2,7 +2,7 @@
 
 Build and preview chatbot flows with a clean, fast UI. Drag nodes, connect them, tweak content, and save — no fuss.
 
-Live deploy (add your URL): https://your-vercel-deployment-url.vercel.app
+Live deployed at: https://bite-speed-chatbot-xi.vercel.app/
 
 ## What’s inside
 - Canvas
